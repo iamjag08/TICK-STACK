@@ -1,0 +1,21 @@
+docker swarm init
+docker stack deploy tick -c tick.yaml
+docker service ls
+Once all the services and replicas are up and running, then populate the data by running the script.
+./enrich-data.sh
+
+Now you should see logs similar to 
+
+http://localhost:8186/write temp value=24.98 1638575074000000000
+HTTP/1.1 204 No Content
+Date: Tue, 01 Mar 2022 06:02:19 GMT
+
+This means that the data is posted to telegraph service.
+
+Now open the browser and go to the url http://localhost:8888/
+
+In the explore section, you can type the below query to verify the data,
+
+select "value" from "test"."autogen"."temp"
+
+You should be able to see the time series data which will in the form of a sine wave.
