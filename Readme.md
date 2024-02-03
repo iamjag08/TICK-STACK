@@ -13,7 +13,7 @@ To get started, you need to install docker and docker swarm.
 ### Setup
 1. ```docker swarm init```
 2. ```docker stack deploy tick -c tick.yaml```
-3. ```docker service ls``
+3. ```docker service ls``` <br />
   Once all the services and replicas are up and running, then populate the data by running the script.
   ```./enrich-data.sh```
 
